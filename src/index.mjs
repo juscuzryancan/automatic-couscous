@@ -1,16 +1,23 @@
-import express  from "express";
+import express  from 'express';
+import morgan from 'morgan';
+import cors from 'cors'
 
 const app = express();
 
+app.use(cors());
+app.use(morgan('dev'));
+app.use(express.json());
+
 app.get("/", (req, res, next) => {
-	res.send("THIS IS HOME")
+	res.send('THIS IS HOME');
 });
 
 // 404 Handler
 app.get('*', (req, res, next) => {
 	res.status(404).send({
 		error: '404 - Not Found', 
-		message: 'No route found for the requested URL'});
+		message: 'No route found for the requested URL'
+	});
 });
 
 // error handling middleware
