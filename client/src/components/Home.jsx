@@ -14,7 +14,7 @@ const Home = () => {
   
   useEffect(() => {
     socket.connect();
-    //TODO: 
+    //TODO: might want to move these into their own file
     socket.on('chat message', onChatMessageEvent);
     
     return () => {
@@ -25,13 +25,21 @@ const Home = () => {
   const handleClick = () => {
     socket.emit('chat message', `this is a random message ${Math.random()}`);
   }
+
+	// <div className='flex flex-col justify-center items-center'>
+	// 	<h1>Hlelo</h1>
+	// 	{/* {message && <div>{message}</div>} */}
+	// 	{messages.map((message) => <div>{message}</div>)}
+	// 	<button onClick={handleClick}>click me</button>
+	// </div>
+
 	return (
-		<div className='flex flex-col justify-center items-center'>
-			<h1>Hlelo</h1>
-			{/* {message && <div>{message}</div>} */}
-			{messages.map((message) => <div>{message}</div>)}
-			<button onClick={handleClick}>click me</button>
-		</div>
+		<main className='flex flex-col justify-center items-center p-4'>
+			<h1 className='text-3xl'>Mach Typer</h1>
+			<section>Welcome to Mach-typer</section>
+			<section>Come and practice typing in a multiplayer fashion</section>
+			<section>Battle your friends and win by typing with the fastest speed</section>
+		</main>
 	);
 
 }

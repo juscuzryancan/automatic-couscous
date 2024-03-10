@@ -13,27 +13,21 @@ const Navbar = () => {
 			<nav className="ml-auto flex items-center gap-4">
 				<Link
 					className="font-medium text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50"
-					to='/'
+					to='/login'
 				>
 					Login
 				</Link>
 				<Link
 					className="font-medium text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50"
-					href="#"
+					to='/register'
 				>
 					Register
 				</Link>
 				<Link
 					className="font-medium text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50"
-					href="#"
+					to='/'
 				>
 					Start Typing
-				</Link>
-				<Link
-					className="font-medium text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50"
-					href="#"
-				>
-					Resources
 				</Link>
 			</nav>
 		</nav>
