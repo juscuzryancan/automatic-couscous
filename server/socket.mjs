@@ -1,12 +1,6 @@
-import { server } from "./server.mjs";
-import { Server } from "socket.io";
+import { io } from "./server.mjs";
 
-const io = new Server(server, {
-  cors: {
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
-  },
-});
-
+//TODO: try to create a concept of rooms
 io.on("connection", (socket) => {
   console.log("a user connected");
   socket.on("disconnect", () => {
