@@ -21,7 +21,7 @@ const Navbar = () => {
         </Link>
         <Link
           className="font-medium text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50"
-          to="/"
+          to="/play"
         >
           Start Typing
         </Link>
@@ -31,4 +31,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
