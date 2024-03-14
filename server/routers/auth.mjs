@@ -14,6 +14,12 @@ router.post("/login", (req, res, next) => {
   }
 });
 
-router.post("/register", (req, res, next) => {});
+router.post("/register", (req, res, next) => {
+  try {
+    const user = "to be filled in";
+  } catch (error) {
+    next(error);
+  }
+});
 
 export default router;
