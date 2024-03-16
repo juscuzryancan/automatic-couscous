@@ -1,8 +1,9 @@
-import { db } from "./";
+import { db } from "./client.mjs";
 
 export async function seed() {
   const client = await db.connect();
   try {
+    await dropTables(client);
     await createTables(client);
     console.log("Successfully Seeded");
   } catch (error) {
@@ -29,7 +30,7 @@ async function createTables(client) {
     await client.query(`
       CREATE TABLE users(
         id SERIAL PRIMARY KEY,
-        username VARCHAR(255) NOT NULL,
+        username VARCHAR(255) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL
       );
     `);
