@@ -7,7 +7,7 @@ export const loginSchema = yup.object({
   }),
 });
 
-export const registerChema = yup.object({
+export const registerSchema = yup.object({
   body: yup.object({
     username: yup.string().required(),
     password: yup.string().required(),
