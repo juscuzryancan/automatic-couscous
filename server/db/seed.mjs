@@ -1,23 +1,23 @@
 import { db } from "./client.mjs";
 
-export async function seed() {
-  const client = await db.connect();
+seed();
+
+async function seed() {
   try {
-    await dropTables(client);
-    await createTables(client);
+    await dropTables();
+    await createTables();
     console.log("Successfully Seeded");
   } catch (error) {
     console.error("Failed to seed");
     console.error(error.message);
   } finally {
-    client.release();
     db.end();
   }
 }
 
-async function dropTables(client) {
+async function dropTables() {
   try {
-    await client.query(`
+    await db.query(`
       DROP TABLE IF EXISTS users;
     `);
   } catch (error) {
@@ -25,9 +25,9 @@ async function dropTables(client) {
   }
 }
 
-async function createTables(client) {
+async function createTables() {
   try {
-    await client.query(`
+    await db.query(`
       CREATE TABLE users(
         id SERIAL PRIMARY KEY,
         username VARCHAR(255) UNIQUE NOT NULL,
