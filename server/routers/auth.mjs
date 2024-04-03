@@ -30,6 +30,10 @@ router.post("/login", validate(loginSchema), async (req, res, next) => {
 
 router.post("/register", validate(registerSchema), async (req, res, next) => {
   try {
+    const _user = await getUserByUsername(req.body.username);
+    if (_user) {
+      res.status(400).send({ message: "This user already exists"});
+    }
     await createUser(req.body);
     res.sendStatus(201);
   } catch (error) {
